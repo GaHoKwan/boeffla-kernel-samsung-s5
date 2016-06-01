@@ -1,0 +1,48 @@
+From 5fd392d0845278614785f0a884020a5c7fd0a5ec Mon Sep 17 00:00:00 2001
+From: andip71 <andreasp@gmx.de>
+Date: Wed, 1 Jun 2016 10:34:09 +0200
+Subject: [PATCH] 2
+
+---
+ default.prop | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
+
+diff --git a/default.prop b/default.prop
+index 9f0cb82..72675c9 100644
+--- a/default.prop
++++ b/default.prop
+@@ -8,11 +8,11 @@ persist.radio.lte_vrte_ltd=1
+ persist.radio.apm_sim_not_pwdn=1
+ persist.radio.add_power_save=1
+ persist.data.netmgrd.qos.enable=false
+-persist.security.ams.enforcing=1
+-ro.secure=1
++persist.security.ams.enforcing=0
++ro.secure=0
+ ro.allow.mock.location=0
+-ro.debuggable=0
+-ro.adb.secure=1
++ro.debuggable=1
++ro.adb.secure=0
+ ro.zygote=zygote32
+ dalvik.vm.image-dex2oat-Xms=64m
+ dalvik.vm.image-dex2oat-Xmx=64m
+@@ -23,10 +23,14 @@ debug.atrace.tags.enableflags=0
+ persist.sys.strict_op_enable=false
+ persist.sys.whitelist=/system/etc/whitelist_appops.xml
+ camera2.portability.force_api=1
+-persist.sys.usb.config=mtp
++persist.sys.usb.config=mtp,adb
++ro.securestorage.support=false
++androidboot.selinux=0
+ #
+ # BOOTIMAGE_BUILD_PROPERTIES
+ #
+ ro.bootimage.build.date=Tue May 3 17:36:06 KST 2016
+ ro.bootimage.build.date.utc=1462264566
+ ro.bootimage.build.fingerprint=samsung/kltexx/klte:6.0.1/MMB29M/G900FXXU1CPE1:user/test-keys
++ro.config.tima=0
++ro.config.knox=0
+-- 
+1.9.1
+

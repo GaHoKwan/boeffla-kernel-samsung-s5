@@ -1,0 +1,25 @@
+From c661ffde25f1370a64926d6bcf144615ebcc9e4a Mon Sep 17 00:00:00 2001
+From: andip71 <andreasp@gmx.de>
+Date: Wed, 1 Jun 2016 10:35:30 +0200
+Subject: [PATCH] 6
+
+---
+ init.target.rc | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/init.target.rc b/init.target.rc
+index afddedc..3e18acf 100755
+--- a/init.target.rc
++++ b/init.target.rc
+@@ -150,6 +150,8 @@ service qrngp /system/bin/qrngp
+ 
+ on property:sys.boot_completed=1
+     start qrngp
++	chmod 0664 /sys/fs/selinux/enforce
++	write /sys/fs/selinux/enforce 0 
+ 
+ on property:sys.boot_completed=1
+    write /proc/iccc_ready 1
+-- 
+1.9.1
+

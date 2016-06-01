@@ -1,0 +1,40 @@
+From da444f2537066395315a0090c884fe6f2baa8ec1 Mon Sep 17 00:00:00 2001
+From: andip71 <andreasp@gmx.de>
+Date: Wed, 1 Jun 2016 10:35:11 +0200
+Subject: [PATCH] 4
+
+---
+ init.rc | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/init.rc b/init.rc
+index 24f8a4d..cde51fd 100755
+--- a/init.rc
++++ b/init.rc
+@@ -25,9 +25,11 @@ on early-init
+     start ueventd
+ 
+ # Configure SEAndroid booleans and enforcing mode
+-     setsebool debugfs 1
++     setsebool debugfs 0
++     setenforce 0
+ 
+ on init
++	setprop ro.boot.selinux 0
+     sysclktz 0
+ 
+     loglevel 3
+@@ -1659,3 +1661,10 @@ on property:service.vpnclientd.enable=1
+ 	start vpnclientd
+ on property:service.vpnclientd.enable=0
+ 	stop vpnclientd
++	
++# Call Boeffla-Kernel init script
++service boeffla-init /sbin/boeffla-init.sh
++    class main
++    user root
++    group root
++    oneshot	
+-- 
+1.9.1
+
